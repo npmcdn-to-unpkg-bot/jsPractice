@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<textarea rows="10" cols="50" autofocus=true id="text">
+		
+	</textarea>
+	<script type="text/javascript">
+		;(function(){
+			var text = document.getElementById("text"),
+				timeoutFlag;
+
+			var isPrintable = function (keycode){
+				var valid = 
+				(keycode > 47 && keycode < 58)   || // number keys
+				keycode == 32 || keycode == 13   || // spacebar & return key(s) (if you want to allow carriage returns)
+				(keycode > 64 && keycode < 91)   || // letter keys
+				(keycode > 95 && keycode < 112)  || // numpad keys
+				(keycode > 185 && keycode < 193) || // ;=,-./` (in order)
+				(keycode > 218 && keycode < 223);   // [\]' (in order)
+
+				return valid;
+			}
+			var ajax = function (){
+				alert("ajax");
+			}
+			var handleKeyDown = function (event){
+				event.stopPropagation();
+				if ( isPrintable(event.keycode) ){
+					
+				}
+				if (timeoutFlag){
+					clearTimeout(timeoutFlag);
+				}
+				timeoutFlag = setTimeout(ajax,3000);
+			} 
+
+			text.addEventListener("keyup", handleKeyDown,false);
+		
+		})();
+	</script>
+</body>
+</html>
