@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div.window{
+			position:absolute;
+			width: 300px;
+			height: 200px;
+			border:3px outset gray;
+		}
+		div.titlebar{
+			position:absolute;
+			top: 0px;
+			height:18px;
+			width: 290px;
+			border-color:#aaa;
+			border-bottom:groove gray 2px;
+			padding:3px 5px 2px 5px;
+			font:bold 11pt sans-serif;
+		}
+		div.content{
+			position:absolute;
+			top: 25px;
+			height: 165px;
+			width: 290px;
+			padding: 5pt;
+			overflow:auto;
+			background-color:#fff;
+		}
+		div.translucent{/* 让窗口部分透明 */
+			opacity:.75;
+		}
+	</style>
+</head>
+<body>
+	<div class="window" style="left:10px;top:10px;z-index:10;">
+		<div class="titlebar">test window</div>
+		<div class="content">
+			1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>
+			1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>			
+		</div>
+	</div>
+	<div class="window" style="left:75px;top:110px;z-index:20;">
+		<div class="titlebar">another window</div>
+		<div class="content translucent">
+			This is another window.Its <tt>z-index</tt> puts on the top of other one.
+			css style makes its content translucent,in browser that suppport it.
+		</div>
+	</div>
+</body>
+</html>

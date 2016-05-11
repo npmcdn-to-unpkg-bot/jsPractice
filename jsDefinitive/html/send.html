@@ -1,0 +1,41 @@
+<!-- postMassge 实例 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>send message</title>
+	<style>
+		#iframeGet{
+			position:fixed;
+			top: 50%;
+			left: 50%;
+			width: 400px;
+			height: 300px;
+			margin-top: -150px;
+			margin-left: -200px;
+			border:1px solid black;
+		}
+		#formMessage{
+			margin:10px 20px;
+		}
+	</style>
+</head>
+<body>
+	<form action="" id="formMessage">
+		<input type="text" id="message">
+		<input type="submit" value="send">
+	</form>
+	<iframe src="./get.html" id="iframeGet"></iframe>
+	<script type="text/javascript">
+		window.onload=function(){
+			var form=document.forms[0];
+			form.onsubmit=function(event){
+				event.preventDefault();
+				var iframeWin=document.getElementById("iframeGet").contentWindow;
+				var value=document.getElementById("message").value;	
+				iframeWin.postMessage(value, "*");
+			}
+		}
+	</script>
+</body>
+</html>

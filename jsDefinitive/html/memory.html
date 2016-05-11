@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var memWorker=new Worker("../js/memFib.js")	;
+	memWorker.onmessage=function(e){
+		var data=JSON.parse(e.data);
+		if(data.end){
+			memWorker.terminate();
+		}
+		else{
+			console.log(data.result,data.time,data.kind);
+		}
+	}
+	var worker=new Worker("../js/fib.js");
+	worker.onmessage=function(e){
+		var data=JSON.parse(e.data);
+		if(data.end){
+			worker.terminate();
+		}
+		else{
+			console.log(data.result,data.time,data.kind);
+		}
+	}
+	</script>
+</body>
+</html>

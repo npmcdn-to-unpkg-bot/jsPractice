@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img{
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<h2>mouseover event</h2>
+	<img src="../public/img/EVA/1.jpg
+	\" alt="fuck you">
+	<img src="../public/img/EVA/2.jpg" alt="">
+	<img src="../public/img/EVA/3.png" alt="">
+	<script type="text/javascript">
+	"use strict";
+	((function(){
+		var imgs=document.querySelectorAll("img");
+		for(var i=0;i<imgs.length;i++){
+			imgs[i].addEventListener("mouseover", createWindow,false);
+			imgs[i].addEventListener("mouseout", dropWindow,false);
+		}
+		function info(obj){
+			var index=Array.prototype.indexOf.call(imgs,obj);
+			var rect=obj.getBoundingClientRect();
+			var height=rect.height;
+			var top=rect.top;
+			var left=rect.left;
+			return {
+				top:top+height+10,
+				left:left+10,
+				maxWidth:rect.width-20,
+				index:index
+			};
+		}
+		function createWindow(event){
+			var rect=info(this);
+			var div=document.createElement("div");
+			div.id="popup";
+			div.style.position="fixed";
+			div.style.index="20";
+			div.style.backgroundColor="rgb(200,200,200)";
+			div.style.top=rect.top+"px";
+			div.style.left=rect.left+"px";
+			div.style.maxWidth=rect.maxWidth;
+			div.innerHTML="This is picture "+rect.index+".";
+			document.body.appendChild(div);
+		}
+		function dropWindow(event){
+			var popup=document.getElementById("popup");
+			if(popup){
+				popup.parentNode.removeChild(popup);
+			}
+		}
+	})());
+	</script>
+</body>
+</html>

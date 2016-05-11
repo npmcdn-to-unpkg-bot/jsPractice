@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>file api</title>
+	<style>
+		#preview{
+			max-width: 400px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form action="">
+		<input type="file" id="file" name=file multiple>
+		<button type="submit">submit</button>
+		<br>
+		<img src="" alt="" id="preview">	
+	</form>
+	<script type="text/javascript">
+		var file=document.querySelector("input[type='file']")
+		var eventGlobal;
+		var fileChange=function(event){
+			eventGlobal=event;
+			console.log("file changed");
+			for(var i=0;i<this.files.length;i++){
+				console.log(this.files.length);
+				var thisFile=this.files[i];
+				var imgSrc=URL.createObjectURL(thisFile);
+				var img=document.getElementById("preview");
+				img.src=imgSrc;
+				console.log(thisFile.name,thisFile.type,thisFile.size);	
+			}
+		}
+		file.addEventListener("change", fileChange);
+	</script>
+</body>
+</html>

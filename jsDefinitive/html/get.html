@@ -1,0 +1,18 @@
+<!-- postMassge 实例 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>get message</title>
+</head>
+<body>
+	<p>get message here</p>	
+	<p id="message"></p>
+	<script type="text/javascript">
+		window.addEventListener("message", displayMessage,false);
+		function displayMessage(event){
+			document.getElementById("message").innerHTML="get message : '"+event.data+"' from "+event.origin;
+		}
+	</script>
+</body>
+</html>
