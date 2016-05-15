@@ -13,6 +13,9 @@
 			margin: 0;
 			padding: 0;
 		}
+		canvas{
+			background-color: rgba(0, 0, 0, 0.9);
+		}
 	</style>
 </head>
 <body>
@@ -23,6 +26,7 @@
 		'use strict';
 		var globalVar = null;
 		;(function(window,document){
+
 			var canvas = document.getElementById("canvas"),
 				cxt = canvas.getContext("2d"),
 				windowHeight = window.innerHeight,
@@ -30,8 +34,6 @@
 				deg = Math.PI / 180,
 				n = 3,
 				length = 30;
-
-			cxt.strokeStyle = "black";
 
 			var setSize = function (canvas){
 				canvas.width = windowWidth = window.innerWidth;
@@ -60,6 +62,7 @@
 				cxt.rotate(-120 * deg);
 				this.leg(n);
 				cxt.closePath();
+				cxt.strokeStyle = "#fff";
 				cxt.stroke();
 				cxt.restore();
 			}
