@@ -33,7 +33,7 @@
 				windowWidth = window.innerWidth,
 				deg = Math.PI / 180,
 				n = 3,
-				length = 30;
+				length = 20;
 
 			var setSize = function (canvas){
 				canvas.width = windowWidth = window.innerWidth;
@@ -44,7 +44,7 @@
 
 			var Snow = function (n, length){
 				this.n = n;
-				this.length =length;
+				this.length = length + Math.round( Math.random() * 10 );
 				this.x = Math.random() * windowWidth;
 				this.y = 100;
 			}
