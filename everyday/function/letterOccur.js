@@ -1,4 +1,4 @@
- // Write a JavaScript function to  get the number of occurrences of each letter in specified string
+ // Write a JavaScript function to  get the number of each letter in specified string
  var calLetterOccur = function (words){
  	words = words.split("");
  	var letterMap = new Map();
