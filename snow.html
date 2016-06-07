@@ -88,10 +88,10 @@
 				cxt.translate(len, 0);
 
 			}
-			snow.prototype.fall = function (){
+			Snow.prototype.fall = function (){
 				var x = this.x,
 					y= this.y;
-				var offsetX = Math.random(),
+				var offsetX = Math.random() * (Math.random() - 0.5),
 					offsetY = Math.random();
 
 				this.x = x + offsetX;
@@ -102,10 +102,23 @@
 				}
 
 			}
-			for(var i=0; i<10; i++){
-				var test = new Snow(n,length);
-				test.draw();
+			var snows = [];
+			for (var i = 0; i < 10; i++){
+				snows.push(new Snow(n, length));
 			}
+			var run = function (){
+				cxt.clearRect(0, 0, windowWidth, windowHeight);
+				snows.forEach( function(element, index) {
+					// statements
+					if (index === 0){
+						console.log(element.x,element.y);
+					}
+					element.draw();
+					element.fall();
+				});
+				requestAnimationFrame( run);
+			}
+			requestAnimationFrame( run );
 		})(window,document);
 	</script>
 </body>
