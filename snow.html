@@ -47,6 +47,7 @@
 				this.length = length + Math.round( Math.random() * 10 );
 				this.x = Math.random() * windowWidth;
 				this.y = 100;
+				this.outOfBorder = false; 
 			}
 			Snow.prototype.draw = function (){
 				var x = this.x,
@@ -87,7 +88,20 @@
 				cxt.translate(len, 0);
 
 			}
+			snow.prototype.fall = function (){
+				var x = this.x,
+					y= this.y;
+				var offsetX = Math.random(),
+					offsetY = Math.random();
 
+				this.x = x + offsetX;
+				this.y = y + offsetY;
+
+				if(this.x <= 0 || this.x >= windowWidth || this.y >= windowHeight || this.y <=0 ){
+					this.outOfBorder = true;
+				}
+
+			}
 			for(var i=0; i<10; i++){
 				var test = new Snow(n,length);
 				test.draw();
