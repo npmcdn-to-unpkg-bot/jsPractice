@@ -15,17 +15,22 @@ var Person = (function () {
 }());
 var Student = (function (_super) {
     __extends(Student, _super);
-    function Student(name, classNumber) {
+    function Student(name, classNumber, age) {
         if (classNumber === void 0) { classNumber = 9; }
         _super.call(this, name);
         this.classNumber = classNumber;
+        this.age = age;
     }
     Student.prototype.greet = function () {
         return _super.prototype.greet.call(this) + " and I am from class " + this.classNumber;
+    };
+    Student.prototype.getAge = function () {
+        return this.age;
     };
     return Student;
 }(Person));
 var julien = new Person("Julien");
 console.log(julien.greet());
-var jack = new Student("jack", 12);
+var jack = new Student("jack", 12, 20);
 console.log(jack.greet());
+console.log(jack.age);
