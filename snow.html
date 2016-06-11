@@ -26,7 +26,26 @@
 		'use strict';
 		var globalVar = null;
 		;(function(window,document){
-
+			var app =  {
+				snows : [] ,
+				init : function (number){
+					number = number || 10;
+					for (var i = 0; i < number; i++){
+						this.snows.push(new Snow(n, length));
+					}
+				},
+				run : function(){
+					var self = this;
+					console.log(self);
+					cxt.clearRect(0, 0, windowWidth, windowHeight);
+					self.snows.forEach( function(element, index) {
+					// statements
+						element.draw();
+						element.fall();
+					});
+					requestAnimationFrame( self.run.bind(self) );
+				} 
+			};
 			var canvas = document.getElementById("canvas"),
 				cxt = canvas.getContext("2d"),
 				windowHeight = window.innerHeight,
@@ -91,8 +110,8 @@
 			Snow.prototype.fall = function (){
 				var x = this.x,
 					y= this.y;
-				var offsetX = Math.random() * (Math.random() - 0.5),
-					offsetY = Math.random();
+				var offsetX = Math.random() * (Math.random() - 0.5) * 2 ,
+					offsetY = Math.random() ;
 
 				this.x = x + offsetX;
 				this.y = y + offsetY;
@@ -102,23 +121,9 @@
 				}
 
 			}
-			var snows = [];
-			for (var i = 0; i < 10; i++){
-				snows.push(new Snow(n, length));
-			}
-			var run = function (){
-				cxt.clearRect(0, 0, windowWidth, windowHeight);
-				snows.forEach( function(element, index) {
-					// statements
-					if (index === 0){
-						console.log(element.x,element.y);
-					}
-					element.draw();
-					element.fall();
-				});
-				requestAnimationFrame( run);
-			}
-			requestAnimationFrame( run );
+
+			app.init();
+			app.run();
 		})(window,document);
 	</script>
 </body>
