@@ -36,15 +36,23 @@
 				},
 				run : function(){
 					var self = this;
-					console.log(self);
 					cxt.clearRect(0, 0, windowWidth, windowHeight);
 					self.snows.forEach( function(element, index) {
 					// statements
+						if ( element.isOutOfBorder === true ){
+							app.remove(index);
+							console.log(index,"out of border");
+							return;
+						}
 						element.draw();
 						element.fall();
 					});
 					requestAnimationFrame( self.run.bind(self) );
-				} 
+				} ,
+
+				remove : function (index){
+					this.snows.splice(index,1);
+				}
 			};
 			var canvas = document.getElementById("canvas"),
 				cxt = canvas.getContext("2d"),
@@ -66,7 +74,7 @@
 				this.length = length + Math.round( Math.random() * 10 );
 				this.x = Math.random() * windowWidth;
 				this.y = 100;
-				this.outOfBorder = false; 
+				this.isOutOfBorder = false; 
 			}
 			Snow.prototype.draw = function (){
 				var x = this.x,
@@ -116,10 +124,13 @@
 				this.x = x + offsetX;
 				this.y = y + offsetY;
 
-				if(this.x <= 0 || this.x >= windowWidth || this.y >= windowHeight || this.y <=0 ){
-					this.outOfBorder = true;
+				if ( this.checkOutOfBorder() ){
+					this.isOutOfBorder = true;
 				}
 
+			}
+			Snow.prototype.checkOutOfBorder = function (){
+				return this.x <= 0 || this.x >= windowWidth || this.y >= windowHeight || this.y <=0; 
 			}
 
 			app.init();
