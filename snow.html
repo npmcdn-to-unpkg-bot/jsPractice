@@ -40,9 +40,11 @@
 					self.snows.forEach( function(element, index) {
 					// statements
 						if ( element.isOutOfBorder === true ){
-							app.remove(index);
-							console.log(index,"out of border");
-							return;
+							if (element.length < 5){
+								app.remove(index);				
+								return;	
+							}
+							element.melt();
 						}
 						element.draw();
 						element.fall();
@@ -128,6 +130,9 @@
 					this.isOutOfBorder = true;
 				}
 
+			}
+			Snow.prototype.melt = function (){
+				this.length = this.length * 0.95;
 			}
 			Snow.prototype.checkOutOfBorder = function (){
 				return this.x <= 0 || this.x >= windowWidth || this.y >= windowHeight || this.y <=0; 
