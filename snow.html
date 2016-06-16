@@ -27,12 +27,17 @@
 		var globalVar = null;
 		;(function(window,document){
 			var app =  {
+				stop : null,
 				snows : [] ,
-				init : function (number){
+				makeSnow : function (number){
 					number = number || 10;
+					var self = this;
 					for (var i = 0; i < number; i++){
-						this.snows.push(new Snow(n, length));
+						self.snows.push(new Snow(n, length));
 					}
+					self.stop = setTimeout(function (){
+						self.makeSnow().bind(self);
+					},1000);
 				},
 				run : function(){
 					var self = this;
@@ -138,7 +143,7 @@
 				return this.x <= 0 || this.x >= windowWidth || this.y >= windowHeight || this.y <=0; 
 			}
 
-			app.init();
+			app.makeSnow();
 			app.run();
 		})(window,document);
 	</script>
