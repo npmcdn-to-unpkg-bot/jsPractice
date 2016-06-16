@@ -79,7 +79,7 @@
 				this.n = n;
 				this.length = length + Math.round( Math.random() * 10 );
 				this.x = Math.random() * windowWidth;
-				this.y = 100;
+				this.y = 0 - Math.random();
 				this.isOutOfBorder = false; 
 			}
 			Snow.prototype.draw = function (){
@@ -125,7 +125,7 @@
 				var x = this.x,
 					y= this.y;
 				var offsetX = Math.random() * (Math.random() - 0.5) * 2 ,
-					offsetY = Math.random() ;
+					 offsetY = Math.random();
 
 				this.x = x + offsetX;
 				this.y = y + offsetY;
@@ -139,7 +139,7 @@
 				this.length = this.length * 0.95;
 			}
 			Snow.prototype.checkOutOfBorder = function (){
-				return this.x <= 0 || this.x >= windowWidth || this.y >= windowHeight || this.y <=0; 
+				return this.x <= 0 || this.x >= windowWidth || this.y >= windowHeight; 
 			}
 
 			app.makeSnow();
