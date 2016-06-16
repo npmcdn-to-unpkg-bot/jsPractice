@@ -29,14 +29,14 @@
 				stop : null,
 				snows : [] ,
 				makeSnow : function (number){
-					number = number || 10;
+					number = number || Math.round(10 * Math.random() );
 					var self = this;
 					for (var i = 0; i < number; i++){
 						self.snows.push(new Snow(n, length));
 					}
 					self.stop = setTimeout(function (){
 						self.makeSnow().bind(self);
-					},1000);
+					},2000);
 				},
 				run : function(){
 					var self = this;
