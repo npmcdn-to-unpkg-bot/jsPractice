@@ -1,0 +1,4 @@
+.gitignore
+
+angular2/node_modules/
+angular2/typings/
