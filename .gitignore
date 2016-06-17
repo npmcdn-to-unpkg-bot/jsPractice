@@ -4,6 +4,8 @@ angular2/node_modules/
 angular2/typings/
 os/dining_philosophers/
 os/hungrythinkers/
+angular2/app/*.js
+angular2/app/main.js
 angular2/app/**/*.js
 angular2/app/**/*.map
 
