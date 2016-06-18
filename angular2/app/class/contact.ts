@@ -1,4 +1,4 @@
 export class Contact {
-	name: String,
-	phoneNumber: String,
+	name: String;
+	phoneNumber: String;
 }
