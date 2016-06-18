@@ -2,17 +2,16 @@ import { Component, OnInit } from "@angular/core";
 
 import { Contact } from "../class/contact";
 import { ContactsService } from "../service/contacts.service";
+
 @Component({
 	selector : "<contacts></contacts>",
-	templateUrl : "app/tamplates/contacts.component.html",
-
-});
-
+	templateUrl : "app/templates/contacts.component.html",
+})
 export class ContactsComponent implements OnInit{
 	contacts: Contact[];
 	selectedContact: Contact;
 	constructor (
-			private contactsService: ContactService
+			private contactsService: ContactsService
 		){
 
 	}
