@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 
 import { Contact } from "../class/contact";
-import { ContactService } from "../service/contacts.service";
+import { ContactsService } from "../service/contacts.service";
 @Component({
 	selector : "<contacts></contacts>",
-	templateUrl : "app/tamplates/contacts.html",
+	templateUrl : "app/tamplates/contacts.component.html",
 
 });
 
-export class Contacts implements OnInit{
+export class ContactsComponent implements OnInit{
 	contacts: Contact[];
 	selectedContact: Contact;
 	constructor (
