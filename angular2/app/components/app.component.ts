@@ -9,6 +9,7 @@ import { ContactsComponent } from "./contacts.component";
 	template : `<h1>My first angular 2 app</h1>
 			<contacts></contacts>
 			`,
+	styleUrls : ["app/style/style.css"],
 	directives : [ContactsComponent],
 	providers : [ContactsService]
 })
