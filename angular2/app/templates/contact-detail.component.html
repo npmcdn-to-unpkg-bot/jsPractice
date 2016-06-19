@@ -1,0 +1,9 @@
+<div *ngIf = "contact">
+	<ul>
+		<li>{{ contact.id }}</li>
+		<li>{{ contact.name }}</li>
+		<li>{{ contact.phoneNumber }}</li>
+	</ul>
+	<input type="text" [(ngModel)] = "contact.name">
+	<input type="text" [(ngModel)] = "contact.phoneNumber">
+</div>
