@@ -10,14 +10,13 @@ import { ContactsService } from "../service/contacts.service";
 })
 
 export class ContactDetailComponent implements OnInit{
-	contact: Contact,
-
+	contact: Contact;
 	constructor (
 		private contactService: ContactsService,
 		private routeParams: RouteParams
 		){
 
-	},
+	}
 	ngOnInit (){
 		let id = this.routeParams.get("id");
 		this.contact = this.contactService.getContact(id);
