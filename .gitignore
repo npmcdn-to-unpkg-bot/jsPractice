@@ -1,5 +1,6 @@
 .gitignore
 
+*.log
 angular2/node_modules/
 angular2/typings/
 os/dining_philosophers/
