@@ -1,12 +1,20 @@
 <h2 class="listHeader">Contacts List</h2>
-<ul class="contactsList">
-	<li *ngFor = "let contact of contacts">
-		<span>{{ contact.name }}</span>
-		<span>{{ contact.phoneNumber }}</span>	
-	</li>	
-</ul>
+<table class="contactsList">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Phonenumber</th>
+	</tr>
+	<tr *ngFor = "let contact of contacts" (click) = "select(contact)">
+		<td>{{ contact.id }}</td>
+		<td>{{ contact.name }}</td>
+		<td>{{ contact.phoneNumber }}</td>
+	</tr>	
+</table>
 <div *ngIf = "selectedContact">
+	<strong>{{ selectedContact.id }}</strong>
 	<strong>{{ selectedContact.name }}</strong>
 	<strong>{{ selectedContact.phoneNumber }}</strong>
-	<button (click) = "gotoDetail">view detail</button>
+	<br>
+	<button class="btn btn-link" (click) = "gotoDetail()">view detail</button>
 </div>
