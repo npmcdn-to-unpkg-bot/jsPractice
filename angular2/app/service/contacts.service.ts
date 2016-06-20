@@ -8,4 +8,9 @@ export class ContactsService{
 	getContacts (){
 		return CONTACTS;
 	}
+	getContact (id){
+		return CONTACTS.filter(function(o) {
+			return o.id === id;
+		})[0];
+	}
 }
