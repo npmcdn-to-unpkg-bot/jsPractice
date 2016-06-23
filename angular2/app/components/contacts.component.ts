@@ -27,7 +27,9 @@ export class ContactsComponent implements OnInit{
 		this.selectedContact = contact;
 	}
 	getContacts (){
-		this.contacts = this.contactsService.getContacts();		
+		this.contactsService.getContacts().then(
+			contacts => this.contacts = contacts;
+			);		
 	}
 	gotoDetail (){
 		this.router.navigate(["Detail",{
