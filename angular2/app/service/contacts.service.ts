@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class ContactsService{
 	getContacts (){
-		return CONTACTS;
+		return Promise.resolve(CONTACTS);
 	}
 	getContact (id){
 		return CONTACTS.filter(function(o) {
