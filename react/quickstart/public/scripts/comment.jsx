@@ -1,11 +1,20 @@
-
+var comments = [
+	{
+		author : "julien",
+		content : "This is a comment from julien"
+	},
+	{
+		author : "jack",
+		content : "This is a comment from jack"
+	}
+]
 // comment box
 var CommentBox = React.createClass({
 	render : function (){
 		return (
 			<div className="commentBox">
 				<h1>comments</h1>
-				<CommentList></CommentList>
+				<CommentList data = {this.props.data}></CommentList>
 				<CommentForm></CommentForm>
 			</div>
 		);
@@ -15,9 +24,16 @@ var CommentBox = React.createClass({
 // comment list 
 var CommentList = React.createClass({
 	render : function (){
+		var commentNodes = this.props.data.map(function (v, i){
+			return (
+				<Comment author = {v.author}>
+					{ v.content }
+				</Comment>
+			);
+		});
 		return (
 			<div className="commentList">
-				This is comment list
+				{commentNodes}
 			</div>
 		);
 	}
@@ -28,9 +44,9 @@ var Comment = React.createClass({
 	render : function (){
 		return (
 			<div className="comment">
-				<h2 className="commentAuthor">
-					{this.props.author}
-				</h2>
+				<strong className="commentAuthor">
+					{this.props.author + ": "}
+				</strong>
 				{this.props.children}
 			</div>
 		);
@@ -42,13 +58,15 @@ var CommentForm = React.createClass({
 	render : function (){
 		return (
 			<div className="commentForm">
-				This is a comment form
+				<h3>
+					This is a comment form					
+				</h3>
 			</div>
 		);
 	}
 });
 
 ReactDOM.render(
-	<CommentBox></CommentBox>,
+	<CommentBox data = {comments}></CommentBox>,
 	document.getElementById("content")
 );
