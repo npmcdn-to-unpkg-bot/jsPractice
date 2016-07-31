@@ -10,4 +10,5 @@ angular2/app/main.js
 angular2/app/**/*.js
 angular2/app/**/*.map
 
+**/node_modules/**
 
