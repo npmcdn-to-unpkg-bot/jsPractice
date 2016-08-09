@@ -1,5 +1,7 @@
 var path = require("path");
 
+const webpack = require("webpack");
+
 module.exports = {
 	entry : "./entry.js",
 
@@ -16,6 +18,7 @@ module.exports = {
 		loaders : [
 			{
 				test : /\.js|jsx$/,
+				exclude : /node_modules/,
 				loaders : ["babel"] 
 			},
 			{
@@ -23,6 +26,17 @@ module.exports = {
 				loaders : ["style", "css"]
 			}
 		]
-	}
+	},
+
+	plugins : [
+		new webpack.optimize.UglifyJsPlugin({
+			compress : {
+				warnings : false,
+			},
+			output : {
+				comments : false,
+			},
+		}),
+	]
 
 }
