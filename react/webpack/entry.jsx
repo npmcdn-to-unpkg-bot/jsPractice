@@ -6,12 +6,19 @@ class HelloMessage extends Component {
 		return (
 			<div>
 				<p>hello,{ this.props.name }</p>
+				<p>{ this.props.gender }</p>
 			</div>
 		);
 	}
 }
 
+let julien = {
+	name : "julien",
+	gender : "male",
+	age : 20
+}
+
 Render(
-	<HelloMessage name = {"Julien"}></HelloMessage>,
+	<HelloMessage  { ...julien }></HelloMessage>,
 	document.getElementById("content")
 );
