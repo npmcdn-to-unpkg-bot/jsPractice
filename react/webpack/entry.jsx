@@ -22,6 +22,10 @@ class LikeButton extends Component {
 			<div>
 				<p>you { text } the video</p>
 				<br/>
+				{
+					// React components using ES6 classes no longer autobind this to non React methods.	
+					// use bind to bind contenxt
+				}
 				<button onClick = { this.handleClick.bind(this) }>toggleLike</button>
 			</div>
 		)
