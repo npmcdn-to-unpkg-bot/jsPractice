@@ -1,16 +1,21 @@
 import React , { Component } from "react";
-import { render as Render } from "react-dom";
+import { render as Render, findDOMNode as Find } from "react-dom";
 
 class LikeButton extends Component {
 	constructor (props){
 		super (props);
+		
 		this.state = {
 			liked : false
 		};
 	}
-
-	handleClick (){
-		console.log(this);
+	static get defaultProps (){
+		return {
+			title : "video",
+			person : "julien"
+		};
+	}
+	handleClick (event){
 		this.setState({
 			liked : !this.state.liked
 		});
@@ -20,7 +25,7 @@ class LikeButton extends Component {
 		let text = this.state.liked ? "like" : "don't like";
 		return (
 			<div>
-				<p>you { text } the video</p>
+				<p> { this.props.person + " " + text } the { this.props.title }</p>
 				<br/>
 				{
 					// React components using ES6 classes no longer autobind this to non React methods.	
@@ -31,7 +36,6 @@ class LikeButton extends Component {
 		)
 	}
 }
-
 var Test = React.createClass({
 	render : function (){
 		return (
