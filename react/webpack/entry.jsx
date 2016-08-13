@@ -1,24 +1,47 @@
-import React, { Component } from "react";
+import React , { Component } from "react";
 import { render as Render } from "react-dom";
 
-class HelloMessage extends Component {
+class LikeButton extends Component {
+	constructor (props){
+		super (props);
+		this.state = {
+			liked : false
+		};
+	}
+
+	handleClick (){
+		console.log(this);
+		this.setState({
+			liked : !this.state.liked
+		});
+	}
+
 	render (){
+		let text = this.state.liked ? "like" : "don't like";
 		return (
 			<div>
-				<p>hello,{ this.props.name }</p>
-				<p>{ this.props.gender }</p>
+				<p>you { text } the video</p>
+				<br/>
+				<button onClick = { this.handleClick.bind(this) }>toggleLike</button>
 			</div>
-		);
+		)
 	}
 }
 
-let julien = {
-	name : "julien",
-	gender : "male",
-	age : 20
-}
+var Test = React.createClass({
+	render : function (){
+		return (
+			<div>
+				<p>for test</p>
+			</div>
+		);
+	},
+});
 
 Render(
-	<HelloMessage  { ...julien }></HelloMessage>,
+	<div>
+		<LikeButton></LikeButton>
+		<Test></Test>
+	</div>,
 	document.getElementById("content")
 );
