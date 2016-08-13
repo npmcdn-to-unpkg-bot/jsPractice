@@ -12,6 +12,7 @@ module.exports = {
 	},
 
 	resolve : {
+		root: path.resolve('./components/'),
 		extensions : ["", ".js", ".jsx"]
 	},
 
@@ -23,7 +24,7 @@ module.exports = {
 				loader : "babel",
 				query : {
 					presets : ["react","es2015"]
-				}
+				},
 			},
 			{
 				test : /\.css$/,
