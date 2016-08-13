@@ -8,7 +8,7 @@ class MyComponent extends Component {
 	render (){
 		return (
 			<div>
-				<p>component</p>
+				<p>my component</p>
 			</div>
 		)
 	}
