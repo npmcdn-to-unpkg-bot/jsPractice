@@ -6,14 +6,19 @@ class LikeButton extends Component {
 		this.state = { liked: false };
 	 }
 
-	 handleClick(e) {
+	 handleClick(event) {
+	 	event.stopPropagation();
 		this.setState({ liked: !this.state.liked });
 	 }
+
+	handleClickOnDiv (e){
+		alert("click on the container");
+	}
 
 	 render() {
 		const text = this.state.liked ? 'like' : 'haven\'t liked';
 		return (
-			<div>
+			<div onClick = { this.handleClickOnDiv.bind(this) }>
 				<p>
 					You {text} this. Click to toggle.
 				</p>
