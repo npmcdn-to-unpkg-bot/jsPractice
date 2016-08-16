@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Clock Practice</title>
+</head>
+<body>
+	<p id ="clock"></p>
+	<script type="text/javascript">
+		;(function(window, document){
+			var clock = document.getElementById("clock"),
+				date,
+				updateDate = function (){
+					var stringArray = [],
+						month,
+						day,
+						hours,
+						minute,
+						second;
+
+					date = new Date();
+					stringArray.push(date.getFullYear()+"年");
+
+					month = date.getMonth() + 1;
+					month = (month>=10) ? month : ("0" + month);
+					stringArray.push(month+"月");
+
+					day  = date.getDate();
+					day = (day >=10) ? day : ("0" + day);
+					stringArray.push(day+"日");
+
+					stringArray.push("星期"+(date.getDay()+1));
+
+					hour = date.getHours();
+					if (hour > 12){
+						stringArray.push("下午");
+					}
+					else {
+						stringArray.push("上午");
+					}
+					if (hour !== 12){
+						stringArray.push((hour % 12 ) + "时");
+					}
+					else {
+						stringArray.push(hour + "时");
+					}
+
+					stringArray.push(date.getMinutes() + "分");
+
+					stringArray.push(date.getSeconds() + "秒");
+
+					clock.innerHTML = stringArray.join("");
+
+
+					setTimeout(updateDate,1000);
+				}
+
+				updateDate();
+		})(window,document);
+	</script>
+</body>
+</html>
