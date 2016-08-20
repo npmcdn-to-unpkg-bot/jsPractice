@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>to set two div same height</title>
+	<style type="text/css">
+		.container{
+			max-width: 1000px;
+			position: relative;
+			margin: 10px auto;
+			overflow: hidden;
+		}
+		.border{
+			border:  1px solid black;
+		}
+		.float{
+			float: left;
+			width:  33%;
+			padding-bottom: 100%;
+			margin-bottom: -100%;
+		}
+
+		.row{
+			display: table;
+			width: 100%;
+		}
+		.col{
+			display: table-cell;
+			width:  33%;
+		}
+
+		.flexContainer{
+			display: flex;
+		}
+		.flex{
+			flex:  1;
+			padding: 3px;
+		}
+	</style>
+</head>
+<body>
+	<h1>to set two div same height</h1>
+	<h4>use margin-bottom and padding-bottom</h4>
+	<!-- looks like hack ...  -->
+	<div class="container">
+		<div class="float border">
+			<pre>
+				float 1
+				float 1
+				float 1
+			</pre>
+		</div>
+		<div class="float border">
+			<pre>
+				float 2
+			</pre>
+		</div>
+		<div class="float border">
+			<pre>
+				float 3
+			</pre>
+		</div>
+	</div>
+	<h4>use table</h4>
+	<div class="container">
+		<div class="row">
+			<div class="col border">
+				table column 1
+				table column 1
+				table column 1
+				table column 1
+			</div>
+			<div class="col border">
+				table column 2
+			</div>
+			<div class="col border">
+				table column 3
+			</div>
+		</div>
+	</div>
+	<h4>use flex layout</h4>
+	<div class="container">
+		<div class="flexContainer">
+			<div class="flex border">
+				<pre>
+					flex 1
+					flex 1
+				</pre>
+			</div>
+			<div class="flex border">
+				<pre>
+					flex 2
+				</pre>
+			</div>
+			<div class="flex border">
+				<pre>
+					flex 3
+				</pre>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
