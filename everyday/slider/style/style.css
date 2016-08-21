@@ -6,6 +6,7 @@
 
 .sliderImg {
 	width: 100%;
+	display: none;
 }
 
 .sliderButtonLeft {
