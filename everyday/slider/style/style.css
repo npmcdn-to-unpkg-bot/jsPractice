@@ -1,0 +1,43 @@
+.sliderContainer {
+	position: relative;
+	max-width: 1200px;
+	margin: 50px auto;
+}
+
+.sliderImg {
+	width: 100%;
+}
+
+.sliderButtonLeft {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: auto;
+	font-size: 24px;
+	text-align: center;
+	color: #fff;
+	border-radius: 50%;
+	background-color: #000;
+}
+
+.sliderButtonRight {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	margin: auto;
+	top: 0;
+	bottom: 0; 
+	right: 0;
+	left: auto;
+	font-size: 24px;
+	text-align: center;
+	color: #fff;
+	border-radius: 50%;
+	background-color: #000;
+}
