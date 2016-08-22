@@ -6,19 +6,14 @@
 		_sliderNumber = 4,
 		clearFlag = null;
 
+	var changeIndex = function (number){
+		sliderIndex = sliderIndex + number;
+		clearTimeout(clearFlag);
+		showSlider();
+	}
+
 	var showSlider = function(n){
 		var length = sliderImg.length;
-		if (n === 1){
-			clearTimeout(clearFlag);
-			showSlider();
-			return;
-		}
-		else if (n === -1){
-			clearTimeout(clearFlag);
-			sliderIndex = sliderIndex - 2;
-			showSlider();
-			return;
-		}
 
 		if (sliderIndex > _sliderNumber){
 			sliderIndex = 0;
@@ -41,10 +36,10 @@
 	showSlider();
 
 	sliderLeft.addEventListener("click", function (){
-		showSlider(-1);
+		changeIndex(-2);
 	});
 
 	sliderRight.addEventListener("click",function (){
-		showSlider(1);
+		changeIndex(0);
 	});
 })(window, document);
