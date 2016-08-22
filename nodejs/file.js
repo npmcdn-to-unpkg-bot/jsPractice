@@ -1,5 +1,5 @@
 
-// find the max files in a folder
+// find the biggest files in a folder
 var fs = require("fs");
 
 var _max = 0,
