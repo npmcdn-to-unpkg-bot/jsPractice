@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="file" id="file" name="file" value="">
+	<canvas id="canvas" width="999" height="999"></canvas>
+	<script type="text/javascript">
+	document.getElementById('file').onchange = function(){
+	  var reader = new FileReader();
+	  reader.onload = function (event) {
+		var data = getData(event.target.result);
+		drawData(data);
+	  }
+	  reader.readAsText(this.files[0]);
+	}
+
+	function getData (text) {
+	  return text.split(/\n/);
+	}
+	function drawData (data) {
+	  var canvas = document.getElementById('canvas');
+	  if(canvas.getContext('2d')) {
+		var context = canvas.getContext('2d');
+
+		for (var i = 0, l = data.length; i < l; i++) {
+		  if(data[i]) {
+			var coords = data[i].split(/\s+/);
+			var x = coords[0];
+			var y = coords[1];
+
+			// draw something wonderful
+			context.font = '20px monospace';
+			context.fillStyle = '#2CA02C';
+			context.fillText('●', x, y);
+		  }
+		}
+	  }
+	}
+	</script>
+</body>
+</html>
