@@ -1,9 +1,13 @@
-function timeout(ms) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, ms, 'done');
-  });
+let myPromise = function (time){
+	return new Promise(function (resolve, reject){
+		setTimeout(resolve, time, "succeed");
+		setTimeout(reject, time, "failed");
+	});
 }
 
-timeout(3000).then((value) => {
-  console.log(value);
-});
+myPromise(3000)
+	.then(function (info){
+		console.log(info);
+	},function (error){
+		console.log(error);
+	});
