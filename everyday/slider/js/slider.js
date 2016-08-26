@@ -29,7 +29,7 @@
 		sliderImg[sliderIndex].style.display = "block";
 		sliderIndex++
 
-		clearFlag = setTimeout(showSlider, 2000);
+		clearFlag = setTimeout(showSlider, 3000);
 
 	}
 
