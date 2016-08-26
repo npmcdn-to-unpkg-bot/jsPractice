@@ -1,3 +1,4 @@
+// 声明提前与块级作用域
 'use strict';
 let f = function (){
 	console.log("i am outsider");
@@ -9,6 +10,9 @@ let f = function (){
 		}
 	}
 	f();
+	console.log(f);
 })();
 
-// 声明提前与块级作用域
+// try const
+const _static = "static";
+// _static = "changed"; 
