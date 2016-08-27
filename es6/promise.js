@@ -1,7 +1,7 @@
 let myPromise = function (time){
 	return new Promise(function (resolve, reject){
 		setTimeout(resolve, time, "succeed");
-		setTimeout(reject, time, "failed");
+		// setTimeout(reject, time, "failed");
 	});
 }
 
