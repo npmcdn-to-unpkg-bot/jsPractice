@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event</title>
+</head>
+<body>
+	<button id="button">click me</button>
+	<script type="text/javascript">
+		;(function(window, document){
+			var body = document.body,
+				button = document.getElementById("button");
+			body.addEventListener("click", function (event){
+				alert("body clicked");
+			}, true);
+			button.addEventListener("click", function (event){
+				alert("button clicked");
+			}, false);
+		})(window, document);
+	</script>
+</body>
+</html>
