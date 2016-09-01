@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tag name</title>
+	<style type="text/css">
+		div {
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<p>hello,world</p>
+	<button>button</button>
+	<div>
+		div
+	</div>
+	<span>span tag</span>
+	<script type="text/javascript">
+		;(function(window, document){
+			var body = document.body,
+				alertTagName = function (event){
+					var target = event.target || event.srcElement;
+					alert(target.tagName.toLowerCase());
+				};
+			window.addEventListener("click", alertTagName);
+		})(window, document);
+	</script>
+</body>
+</html>
