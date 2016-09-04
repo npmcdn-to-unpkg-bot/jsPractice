@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>float</title>
+	<style type="text/css">
+		*{
+			text-align: center;
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		div {
+			border: 1px solid black;
+		}
+		.container{
+			position: relative;
+			/* height: 600px; */
+			margin-left: 400px;
+			margin-right: 300px;
+			border: 0;
+		}
+		.left {
+			position: absolute;
+			width: 400px;
+			top: 0;
+			left: -400px;
+		}
+		.right {
+			position: absolute;
+			width: 300px;
+			top: 0;
+			right: -300px;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="left">
+			left
+		</div>
+		<div class="middle">
+			middle
+			<p>middle</p>
+		</div>
+		<div class="right">
+			right
+		</div>
+	</div>
+</body>
+</html>

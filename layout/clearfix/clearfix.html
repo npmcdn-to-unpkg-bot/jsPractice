@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clear fix</title>
+	<style type="text/css">
+		div {
+			border: 1px solid black;
+		}
+		.container {
+		}
+		.left {
+			float: left;
+			width: 200px;
+			height: 100px;
+		}
+		.overflow {
+			overflow: auto;
+			/* zoom: 1;  // for ie6 */
+		}
+		.clearfix {
+			clear: both;
+		}
+		.clearafter::after {
+			clear: both;
+			display: block;
+			content: "";
+			height: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container overflow">
+		<div class="left">
+			float left
+		</div>
+	</div>
+	<div class="container">
+		<div class="left">
+			float left
+		</div>
+		<p class="clearfix"></p>
+	</div>
+	<div class="container clearafter">
+		<div class="left">
+			float left
+		</div>
+	</div>
+</body>
+</html>

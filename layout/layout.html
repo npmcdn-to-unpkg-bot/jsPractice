@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>layout</title>
+	<style type="text/css">
+		*{
+			text-align: center;
+		}
+		div{
+			border:  1px solid black;
+		}
+		.container{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			height: 200px;
+
+		}
+		.quarter {
+			flex-grow: 1;
+			margin: 10px;
+		}
+		.left {
+			flex: 0 0 200px;
+		}
+		.middle {
+			flex-grow: 1;
+			/* flex: 0 0 1000px ; */
+		}
+		.right {
+			flex: 0 0 300px;
+		}
+		.flex-center{
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left">
+			left
+		</div>
+		<div class="middle">
+			middle
+		</div>
+		<div class="right">
+			right
+		</div>
+	</div>
+	<div class="container flex-center">
+		<div class="quarter">
+			div 1
+			<p>first quarter</p>
+		</div>
+		<div class="quarter">div 2</div>
+		<div class="quarter">div 3</div>
+		<div class="quarter">div 4</div>
+	</div>
+</body>
+</html>
