@@ -6,7 +6,14 @@
 </head>
 <body>
 	<div id="app">
-		<p>{{ message }}</p>
+		<p>todolist using vue.js</p>
+		<input type="text" name="text" v-model = "newTodo" v-on:keydown.enter = "addNewTodo">
+		<ul>
+			<li v-for = "todo in todos">
+				<span>{{ todo.text }}</span>
+				<button v-on:click = "removeTodo($index)">delete</button>
+			</li>
+		</ul>
 	</div>
 	<script type="text/javascript" src="https://npmcdn.com/vue/dist/vue.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
